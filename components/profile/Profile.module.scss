@@ -1,0 +1,64 @@
+@import '../../styles/variables.scss';
+
+.profile {
+    display: flex;
+    justify-content: space-between;
+
+    .title, .head {
+        @include user-text();
+    }
+
+    .head {
+        font-size: 24px;
+    }
+
+    .main_info {
+        display: flex;
+        flex-direction: column;
+
+        .user {
+            display: flex;
+
+            .info {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+
+                .data {
+                    margin-top: 8px;
+                    font-size: 24px;
+                    font-weight: 700;
+                }
+
+                .edit {
+                    @include button();
+                    width: 176px;
+                    padding: 15px 5px;
+
+                    &:hover {
+                        @include button-hover();
+                    }
+                }
+            }
+        }
+
+    }
+
+    .aboutme {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        background: $user-pink;
+        width: 322px;
+        height: 320px;
+        padding: 25px;
+        box-shadow: 0 24px 36px 0 rgba(53, 49, 84, 0.28);
+
+        .text {
+            color: $base-gray;
+            font-size: 12px;
+            font-weight: 600;
+        }
+    }
+}

@@ -1,0 +1,128 @@
+@import '../../styles//variables.scss';
+
+.cart {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+
+    .header, .f_title, .total {
+        @include user-text();
+        font-size: 24px;
+    }
+
+    .main {
+        .table {
+            display: grid;
+            grid-template-columns: 40% 25% 20% 20%;
+            margin-top: 10px;
+            
+            .item, .quantity, .price, .delivery {
+                color: $base-gray;
+                font-size: 10px;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+        }
+
+        .book {
+            margin-top: 25px;
+
+            .wrapper {
+                display: grid;
+                align-items: center;
+                grid-template-columns: 40% 25% 20% 20%;
+
+                .item {
+                    display: flex;
+                    gap: 20px;
+
+                    .bookcover {
+                        width: 102.5px;
+                        height: 145.05px;
+                        box-shadow: 0 24px 36px 0 rgba(53, 49, 84, 0.28);
+                    }
+
+                    .bookinfo {
+                        align-self: center;
+
+                        .name {
+                            font-size: 16px;
+                            font-weight: 700;
+                            color: $base-black;
+                        }
+
+                        .author, .rating {
+                            font-size: 10px;
+                            font-weight: 400;
+                            margin-top: 10px;
+                        }
+
+                    }
+                }
+
+                .quantity {
+                    .wrapper {
+                        width: 176px;
+                        height: 45px;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-around;
+                        align-items: center;
+                        border: 1px solid #EEEDF5;
+
+                        input {
+                            all: unset;
+                            width: 50px;
+                            color: $base-gray;
+                            font-size: 16px;
+                            font-weight: 700;
+                            text-align: center;
+                            &::-webkit-outer-spin-button,
+                            &::-webkit-inner-spin-button {
+                                -webkit-appearance: none;
+                                margin: 0;
+                            }
+                            &[type=number] {
+                                -moz-appearance: textfield;
+                            }
+                        }
+                        .button {
+                            border: none;
+                        }
+
+                    }
+
+                }
+
+                .price {
+                    font-size: 22px;
+                    font-weight: 700;
+                }
+
+                .delivery {
+                    font-size: 12px;
+                    font-weight: 700;
+                    color: $base-gray;
+                }
+
+            }
+        }
+    }
+    .footer {
+
+        .price {
+            display: flex;
+            align-items: center;
+        }
+
+        .buy {
+            @include button();
+            width: 176px;
+            padding: 15px 57px;
+
+            &:hover {
+                @include button-hover();
+            }
+        }
+    }
+}

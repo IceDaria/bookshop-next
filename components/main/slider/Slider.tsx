@@ -1,0 +1,100 @@
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import s from './Slider.module.scss';
+
+import banner from '../../../public/banner.png';
+import banner2 from '../../../public/banner2.png';
+import banner3 from '../../../public/banner3.png';
+import { GlobalSVGSelector } from '@/components/shared/GlobalSVGSelector';
+
+const Slider = () => {
+    const images = [banner, banner2, banner3];
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const [autoSlide, setAutoSlide] = useState(true);
+
+    useEffect(() => {
+        let intervalId: NodeJS.Timeout;
+
+        const autoSlideHandler = () => {
+            setCurrentSlide((prevSlide) => (prevSlide + 1) % images.length);
+        };
+
+        const startAutoSlide = () => {
+            intervalId = setInterval(autoSlideHandler, 5000);
+        };
+
+        if (autoSlide) {
+            startAutoSlide();
+        }
+
+        return () => {
+            clearInterval(intervalId);
+        };
+    }, [autoSlide, images.length]);
+
+    const handleDotClick = (index: number) => {
+        setCurrentSlide(index);
+        setAutoSlide(false);
+        setTimeout(() => {
+            setAutoSlide(true);
+        }, 15000);
+    };
+
+    return (
+        <div>
+            <div className='container'>
+                <div className={s.main_slider}>
+                    <div className={s.slider__images}>
+                        {images.map((slide, index) => (
+                            <div
+                            key={index}
+                            className={`${s.image} n${index} ${currentSlide === index ? s.active : ''}`}
+                        >
+                            <Image 
+                            src={slide} 
+                            alt={`Slide ${index}`} 
+                            height={0}
+                            width={0}
+                            style={{width:'100%', height: "100%" }} />
+                        </div>
+                            ))}
+                    </div>
+                    <div className={s.slider__dots}>
+                        {images.map((_, index) => (
+                            <div
+                                key={index}
+                                className={`${s.dot} n${index} ${currentSlide === index ? s.active : ''}`}
+                                onClick={() => handleDotClick(index)}>
+                            </div>
+                        ))}
+                    </div>
+                    <div className={s.promo_stiker}>
+                        <a href="#">
+                            <span className={s.sticker__first}>
+                                <span className={s.sticker__text}>
+                                Change<br/>old book<br/>on new
+                                </span>
+                                <div className={s.sticker__svg}><GlobalSVGSelector id='promoArrow'/></div>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div className={s.promo_stikers}>
+                <div className={s.promo_stiker}>
+                    <a href="#">
+                        <span className={s.sticker__second}>
+                            <span className={s.sticker__text}>
+                            top<br/>100<br/>books<br/> 2022
+                            </span>
+                            <div className={s.sticker__svg}><GlobalSVGSelector id='promoArrow'/></div>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default Slider;
