@@ -18,8 +18,9 @@ export interface Slide {
     src: string;
 }
 
-export interface bookData {
+export interface IbookData {
     id: string;
+    subject: string;
     volumeInfo: {
         title: string;
         authors?: Array<string>;
@@ -40,6 +41,4 @@ export interface bookData {
     };
 }
 
-export interface APIResponse {
-    items: bookData[];
-}
+

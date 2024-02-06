@@ -1,0 +1,88 @@
+@import '../../../styles/variables.scss';
+
+.bookcard {
+    display: flex;
+    column-gap: 25px;
+
+    @media screen and (max-width: 425px) {
+        column-gap: 10px;
+    }
+
+    .bookcover{
+        height: 300px;
+        width: 212px;
+
+        @media screen and (max-width: 425px) {
+            height: 160px;
+            width: 120px;
+        }
+    }
+    .bookinfo {
+        font-family: 'Open Sans', sans-serif;
+        color: $base-gray;
+        font-size: 10px;
+        width: 203px;
+        display: flex;
+        row-gap: 10px;
+        align-self: center;
+        flex-direction: column;
+
+        @media screen and (max-width: 425px) {
+            row-gap: 5px;
+        }
+
+        .author {
+            font-weight: 400;
+            @include line-clamp ();
+            
+        }
+
+        .name {
+            @include line-clamp ();
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: $base-black;
+
+            @media screen and (max-width: 425px) {
+               font-size: 14px;
+            }
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            column-gap: 5px;
+
+            .stars {
+                display: flex
+            }
+        }
+
+        .description {
+            @include line-clamp ();
+            -webkit-line-clamp: 3;
+        }
+
+        .price {
+            font-weight: 700;
+            font-size: 13px;
+            color: $base-black;
+        }
+    }
+}
+
+.buybutton {
+
+    @include button();
+
+    &:hover {
+        @include button-hover();
+    }
+
+    &.active {
+        border: 1px solid $button-active;
+        color: $base-gray;
+        padding: 15px 55px;
+    }
+}
