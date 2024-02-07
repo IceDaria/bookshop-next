@@ -1,9 +1,7 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import filterReducer from './filterReducer';
 import bookReducer from './bookReducer';
 
 const rootReducer = combineReducers({
-    filter: filterReducer,
     books: bookReducer,
 });
     

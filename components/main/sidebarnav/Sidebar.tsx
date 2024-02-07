@@ -1,3 +1,4 @@
+import router from 'next/router';
 import s from './Sidebar.module.scss';
 import { useState } from 'react';
 

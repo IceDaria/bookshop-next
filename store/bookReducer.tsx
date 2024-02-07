@@ -1,5 +1,6 @@
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "./store";
 import { IbookData } from "@/components/shared/Types";
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface BookState {
   bookData: IbookData[];
@@ -25,7 +26,9 @@ const bookSlice = createSlice({
 });
 
 export const { setBooks, setLoading } = bookSlice.actions;
-export const selectBooks = (state: { books: BookState }) => state.books.bookData;
-export const selectLoading = (state: { books: BookState }) => state.books.loading;
+
+// Selector
+export const selectBooks = (state: RootState) => state.books.bookData;
+export const selectLoading = (state: RootState) => state.books.loading;
 
 export default bookSlice.reducer;
