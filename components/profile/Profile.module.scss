@@ -3,6 +3,11 @@
 .profile {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+
+    @media screen and (max-width: 425px) {
+        gap: 20px;
+    }
 
     .title, .head {
         @include user-text();
@@ -18,6 +23,11 @@
 
         .user {
             display: flex;
+
+            @media screen and (max-width: 425px) {
+                flex-direction: column;
+                align-items: center;
+            }
 
             .info {
                 display: flex;

@@ -1,0 +1,98 @@
+@import '../../../styles/variables.scss';
+
+.popup {
+    width: 241px;
+    height: 312px;
+    background: white;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    left: 880px;
+    top: 80px;
+
+    @media screen and (max-width: 425px) {
+        right: 0;
+        left: auto;
+        top: 45px
+    }
+
+    .title {
+        font-size: 16px;
+        font-weight: 700;
+        color: $base-black;
+    }
+
+    .logged {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        min-width: 170px;
+
+        .input {
+            border: 1px solid $button;
+            padding: 10px;
+            color: $button;
+            font-family: Montserrat, sans-serif;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+
+        label {
+            font-size: 12px;
+            font-weight: 700;
+            color: $base-black;
+        }
+    }
+    
+    .profile {
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: $lightpurple;
+        text-transform: uppercase;
+        color: white;
+        text-decoration: none;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 700;
+
+        &:hover {
+            @include button-hover()
+        }
+
+    }
+
+    .error {
+        color: $base-red;
+        font-size: 8px;
+        font-weight: 700;
+    }
+
+    .button {
+        width: 100%;
+        border: none;
+        background-color: $lightpurple;
+        text-transform: uppercase;
+        color: white;
+        font-size: 14px;
+        font-weight: 700;
+        padding: 10px 60px;
+
+        &:hover {
+            @include button-hover()
+        }
+    }
+}

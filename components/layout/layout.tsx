@@ -7,8 +7,9 @@ export default function Layout({ children }: PropsWithChildren) {
     <>
       <Head>
         <title>BookShop on Next</title>
-        <meta name="description" content="SkillFactory Next.js project" />
+        <meta name="description" content="Bookshop with Next" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="author" content="Ice Daria" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
         
@@ -16,8 +17,8 @@ export default function Layout({ children }: PropsWithChildren) {
         <header>
           <Header />
         </header>
-        <main>{children}</main>
-          <footer></footer>
+          <main>{children}</main>
+        <footer></footer>
       </div>
     </>
   );

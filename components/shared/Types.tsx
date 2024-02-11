@@ -41,4 +41,7 @@ export interface IbookData {
     };
 }
 
-
+export interface ICart {
+    book: IbookData;
+    quantity: number,
+}

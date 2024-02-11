@@ -25,6 +25,6 @@ function isValidEmail(email: string): boolean {
 
 // Функция для валидации пароля
 function isValidPassword(password: string): boolean {
-    // Пароль должен состоять из 6-9 символов
-    return password.length >= 6 && password.length <= 9;
+    // Пароль должен быть длиннее 6 символов
+    return password.length >= 6;
 }

@@ -11,7 +11,7 @@
     .bookcover{
         height: 300px;
         width: 212px;
-
+        
         @media screen and (max-width: 425px) {
             height: 160px;
             width: 120px;
@@ -81,9 +81,51 @@
         @include button-hover();
     }
 
-    &.active {
+    &.disabledButton {
+        pointer-events: none;
+        cursor: default; 
         border: 1px solid $button-active;
         color: $base-gray;
         padding: 15px 55px;
+    }
+}
+
+.wrapper {
+    display: flex;
+    font-weight: 700;
+    gap: 3px;
+    color: $base-red;
+    
+    .close {
+        overflow: hidden;
+        position: relative;
+        border: none;
+        width: 2em; height: 2em;
+        border-radius: 50%;
+        background: transparent;
+        color: $base-red;
+        text-indent: 100%;
+        margin-top: 5px;
+        
+        &:focus {
+            outline: solid 0 transparent;
+            box-shadow: 0 0 0 1px $base-red;
+        }
+        
+        &:hover {
+            background: rgba(208, 89, 75, 0.1)
+        }
+        
+        &:before, &:after {
+            position: absolute;
+            top: 15%; left: calc(50% - .0625em);
+            width: .125em; height: 70%;
+            border-radius: .125em;
+            transform: rotate(45deg);
+            background: currentcolor;
+            content: ''
+        }
+        
+        &:after { transform: rotate(-45deg); }
     }
 }

@@ -88,7 +88,7 @@
         justify-content: center;;
     }
     
-    .cart__counter {
+    .counter {
         display: flex;
         justify-content: center;
         font-weight: 500;
@@ -98,8 +98,8 @@
         background-color: $base-red;
         color: white;
         position: absolute;
-        top: 10px;
-        left: 12px;
+        top: 9px;
+        left: 5px;
         width: 12px;
         height: 12px;
     }

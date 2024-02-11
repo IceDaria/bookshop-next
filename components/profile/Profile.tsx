@@ -2,11 +2,18 @@ import s from './Profile.module.scss';
 import Image from "next/image";
 import avatar from '../../public/profile.png';
 
+import { useSelector } from 'react-redux';
+import { selectEmail } from '@/store/authReducer';
+
+// создаём компонент страницы профиля
 export default function Profile() {
+    // Используем селектор для получения email из хранилища
+    const email = useSelector(selectEmail);
+
     return (
         <div className={`${s.profile} container`}>
             <div className={s.main_info}>
-                <div className={s.head}>profile</div>
+                <h1 className={s.head}>profile</h1>
                 <div className={s.user}>
                     <div className={s.avatar}>
                         <Image src={avatar} alt={"Your avatar"} priority width={235} height={235} />
@@ -14,12 +21,12 @@ export default function Profile() {
                     <div className={s.info}>
                         <div className={s.wrapper}>
                             <div className={s.title}>your name</div>
-                            <div className={s.data}>Jonh Dow</div>
+                            <div className={s.data}>Daria Ice</div>
                         </div>
 
                         <div className={s.wrapper}>
                             <div className={s.title}>your email</div>
-                            <div className={s.data}>example@gmail.com</div>
+                            <div className={s.data}>{email}</div>
                         </div>
                         <button className={s.edit}>edit profile</button>
                     </div>

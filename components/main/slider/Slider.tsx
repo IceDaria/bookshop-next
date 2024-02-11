@@ -8,30 +8,37 @@ import banner3 from '../../../public/banner3.png';
 import { GlobalSVGSelector } from '@/components/shared/GlobalSVGSelector';
 
 const Slider = () => {
+    // Массив изображений для слайдера
     const images = [banner, banner2, banner3];
+    // Состояние для отслеживания текущего слайда
     const [currentSlide, setCurrentSlide] = useState(0);
+    // Состояние для автоматического пролистывания слайдов
     const [autoSlide, setAutoSlide] = useState(true);
 
     useEffect(() => {
         let intervalId: NodeJS.Timeout;
-
+        // Функция для автоматического пролистывания слайдов
         const autoSlideHandler = () => {
             setCurrentSlide((prevSlide) => (prevSlide + 1) % images.length);
         };
 
+        // Функция для запуска автоматического пролистывания
         const startAutoSlide = () => {
             intervalId = setInterval(autoSlideHandler, 5000);
         };
 
+        // Запускаем автоматическое пролистывание при монтировании компонента
         if (autoSlide) {
             startAutoSlide();
         }
 
+        // Очищаем интервал при размонтировании компонента
         return () => {
             clearInterval(intervalId);
         };
     }, [autoSlide, images.length]);
-
+    
+ // Обработчик клика по точке слайдера
     const handleDotClick = (index: number) => {
         setCurrentSlide(index);
         setAutoSlide(false);
