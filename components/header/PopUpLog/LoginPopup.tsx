@@ -31,7 +31,6 @@ export default function LoginPopup() {
 
         // Выполнение действий Redux для авторизации
         try {
-            // Ваша логика для отправки запроса авторизации
             const response = await fetch('/api/auth', {
                 method: 'POST',
                 headers: {
